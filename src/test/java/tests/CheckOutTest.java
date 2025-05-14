@@ -1,12 +1,15 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 public class CheckOutTest extends tests.BaseTest{
 
-    @Test
+    @Description("Оформления заказа без заполнения всех данных")
+    @Test(testName = "проверка оформления заказа без данных",
+    description = "попытка оформления заказа без заполнения всех данных")
     public void negativeSendKeys(){
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -19,7 +22,9 @@ public class CheckOutTest extends tests.BaseTest{
                 "ошибка не появилась");
     }
 
-    @Test
+    @Description("Проверка оформления заказа с заполнением всех обязательных полей")
+    @Test(testName = "проверка оформления заказа",
+    description = "проверка стандартного оформления заказа с заполнением всех обязательных дынных")
     public void positiveSendKeys() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -34,6 +39,6 @@ public class CheckOutTest extends tests.BaseTest{
         checkOutPage.finishCheckOut();
         assertEquals(checkOutPage.getTitle(),
                 "Checkout: Complete!",
-                "finish не совершен!");
+                "Завершение не произошло!");
     }
 }
