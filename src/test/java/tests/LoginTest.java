@@ -1,12 +1,12 @@
 package tests;
 
 import io.qameta.allure.*;
-import org.testng.Assert;
-import org.testng.annotations.Listeners;
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
+@Log4j2
 public class LoginTest extends tests.BaseTest {
 
     @Epic("Заполнение полей логина")
@@ -22,6 +22,7 @@ public class LoginTest extends tests.BaseTest {
     @Test(testName = "Проверка логина в систему (пустой пароль)",
             description = "проверяем вход систему с пустым паролем")
     public void checkLoginWithEmptyPassword() {
+        log.info("Log in without password");
         loginPage.open();
         loginPage.login("standard_user", "");
         assertEquals(loginPage.getErrorMassage(),
@@ -33,6 +34,7 @@ public class LoginTest extends tests.BaseTest {
     @Test(testName = "Проверка логина в систему (неверный пароль)",
             description = "проверяем вход систему с неверным паролем")
     public void checkLoginWithWrongPassword() {
+        log.info("Log in with wrong password");
         loginPage.open();
         loginPage.login("standard_user", "12345678");
         assertEquals(loginPage.getErrorMassage(),
@@ -44,10 +46,11 @@ public class LoginTest extends tests.BaseTest {
     @Test(testName = "Проверка логина в систему (пустой логин)",
             description = "проверяем вход систему с пустым полем username")
     public void checkLoginWithEmptyUsername() {
+        log.info("Log in without username");
         loginPage.open();
         loginPage.login("", "secret_sauce");
         assertEquals(loginPage.getErrorMassage(),
-                "Epic sadface: Usernam is required",
+                "Epic sadface: Username is required",
                 "ошибка не появилась");
     }
 
@@ -55,6 +58,7 @@ public class LoginTest extends tests.BaseTest {
     @Test(testName = "Проверка входа в систему с верными данными",
             description = "проверяем вход систему с верными данными для входа")
     public void checkPositiveLogin() {
+        log.info("Log in positive");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         assertEquals(productsPage.getTitle(),
