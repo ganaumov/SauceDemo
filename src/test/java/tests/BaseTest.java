@@ -37,7 +37,7 @@ public class BaseTest {
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-infobars");
-
+        options.addArguments("--headless");
         if (browser.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("firefox")) {
