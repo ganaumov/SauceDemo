@@ -15,7 +15,7 @@ public class CartTest extends tests.BaseTest{
     public void addToCart () {
         log.info("Add to cart test");
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.addToCart();
         productsPage.clickToCart();
         assertEquals(productsPage.getTitle(),
@@ -29,7 +29,7 @@ public class CartTest extends tests.BaseTest{
     public void checkRemoveProduct() {
         log.info("Delete from cart test");
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.addToCart();
         productsPage.clickToCart();
         cartPage.removeProduct();

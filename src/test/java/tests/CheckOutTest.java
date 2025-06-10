@@ -14,7 +14,7 @@ public class CheckOutTest extends tests.BaseTest{
     public void negativeSendKeys(){
         log.info("Checkout without all requirements keys ");
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.addToCart();
         productsPage.clickToCart();
         cartPage.goCheckOut();
@@ -31,7 +31,7 @@ public class CheckOutTest extends tests.BaseTest{
     public void positiveSendKeys() {
         log.info("Checkout with positive keys");
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.addToCart();
         productsPage.clickToCart();
         cartPage.goCheckOut();
