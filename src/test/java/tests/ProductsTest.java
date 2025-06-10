@@ -12,7 +12,7 @@ public class ProductsTest extends tests.BaseTest{
     description = "проверка кликабельного перехода на страницу корзины")
     public void cartOpen() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.clickToCart();
         String text = driver.findElement(By.xpath("//*[@id='header_container']/div[2]/span")).getText();
         Assert.assertEquals(text,
@@ -25,7 +25,7 @@ public class ProductsTest extends tests.BaseTest{
     description = "проверка добавления товара в корзину")
     public void addToCart() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.addToCart();
         String text = driver.findElement(By.xpath("//*[@id='shopping_cart_container']/a/span")).getText();
         Assert.assertEquals(text,

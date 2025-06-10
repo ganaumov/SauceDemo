@@ -57,9 +57,10 @@ public class BaseTest {
         cartPage = new CartPage(driver);
         checkOutPage = new CheckOutPage(driver);
     }
+
     @AfterMethod(alwaysRun = true)
-    public void teardown(ITestResult result){
-        if (ITestResult.FAILURE == result.getStatus()){
+    public void teardown(ITestResult result) {
+        if (ITestResult.FAILURE == result.getStatus()) {
             AllureUtils.takeScreenshot(driver);
         }
         driver.quit();

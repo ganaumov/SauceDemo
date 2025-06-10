@@ -7,12 +7,12 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 @Log4j2
-public class CartTest extends tests.BaseTest{
+public class CartTest extends tests.BaseTest {
 
     @Description("Проверка добавления товара в корзину")
     @Test(testName = "добавление в корзину",
-    description = "проверка добавления товара в корзину")
-    public void addToCart () {
+            description = "проверка добавления товара в корзину")
+    public void addToCart() {
         log.info("Add to cart test");
         loginPage.open();
         loginPage.login(user, password);
@@ -25,7 +25,7 @@ public class CartTest extends tests.BaseTest{
 
     @Description("Проверка функции удаления товара из корзины")
     @Test(testName = "удаление товара из корзины",
-    description = "проверка функции удаления товара из корзины")
+            description = "проверка функции удаления товара из корзины")
     public void checkRemoveProduct() {
         log.info("Delete from cart test");
         loginPage.open();
